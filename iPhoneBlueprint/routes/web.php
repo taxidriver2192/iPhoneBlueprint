@@ -28,3 +28,4 @@ Route::delete('products/{product}/remove', [CartController::class, 'remove'])->n
 
 //Card
 Route::get('cart', [CartController::class, 'show'])->name('cart.show');
+Route::post('cart/{product}/update', [CartController::class, 'update'])->name('cart.update');
