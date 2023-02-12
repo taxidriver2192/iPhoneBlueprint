@@ -25,3 +25,6 @@ Route::get('/products/{product}', [ProductController::class, 'show'])->name('pro
 // CartController
 Route::post('products/{product}/add', [CartController::class, 'add'])->name('cart.add');
 Route::delete('products/{product}/remove', [CartController::class, 'remove'])->name('cart.remove');
+
+//Card
+Route::get('cart', [CartController::class, 'show'])->name('cart.show');

@@ -1,4 +1,3 @@
-
 <h1><?php echo $product->name; ?></h1>
 <p><?php echo $product->description; ?></p>
 <p>Price: <?php echo $product->price; ?></p>
@@ -14,6 +13,8 @@
 
 <form action="<?php echo route('cart.remove', ['product' => $product->id]); ?>" method="post">
     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-    <input type="hidden" name="action" value="remove">
+    <input type="hidden" name="_method" value="delete">
     <button type="submit">Remove from Cart</button>
 </form>
+
+<a href="/cart">View Cart</a>
