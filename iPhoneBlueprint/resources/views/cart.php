@@ -1,19 +1,26 @@
+<?php
+$title = "Your Cart";
+$description = "Cart";
+
+ob_start();
+?>
+
 <h1>Your Cart</h1>
 <table>
     <thead>
-        <tr>
-            <th>Product Name</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Total</th>
-        </tr>
+    <tr>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+    </tr>
     </thead>
     <tbody>
-        <?php
-            $cart = session()->get('cart', []);
-            $total = 0;
-            foreach ($cart as $id => $details) {
-                $total += $details['price'] * $details['quantity'];
+    <?php
+    $cart = session()->get('cart', []);
+    $total = 0;
+    foreach ($cart as $id => $details) {
+        $total += $details['price'] * $details['quantity'];
         ?>
         <tr>
             <td><?php echo $details['name']; ?></td>
@@ -44,3 +51,9 @@
     </tr>
     </tbody>
 </table>
+
+<?php
+$content = ob_get_clean();
+$layoutPath = base_path() . '/resources/views/layout.php';
+include $layoutPath;
+?>

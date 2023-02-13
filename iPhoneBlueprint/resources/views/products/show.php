@@ -1,4 +1,10 @@
-<h1><?php echo $product->name; ?></h1>
+<?php
+$title = "Product: " . $product->name;
+$description = "Details for product " . $product->name . " including model, price, and description.";
+ob_start();
+?>
+
+<h1><?php echo  $product->name; ?></h1>
 <p><?php echo $product->description; ?></p>
 <p>Price: <?php echo $product->price; ?></p>
 <p>Model: <?php echo $product->model; ?></p>
@@ -17,4 +23,8 @@
     <button type="submit">Remove from Cart</button>
 </form>
 
-<a href="/cart">View Cart</a>
+<?php
+$content = ob_get_clean();
+$layoutPath = base_path() . '/resources/views/layout.php';
+include $layoutPath;
+?>
