@@ -3,7 +3,7 @@
     <?php include 'partials/head.php'; ?>
 <body>
     <?php include 'partials/header.php'; ?>
-<main>
+<main class="container">
     <?php echo $content; ?>
 </main>
     <?php include 'partials/footer.php'; ?>

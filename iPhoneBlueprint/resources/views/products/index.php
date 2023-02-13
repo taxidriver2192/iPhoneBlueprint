@@ -6,13 +6,21 @@ ob_start();
 ?>
 
 <h1>All Products</h1>
-<ul>
+<div class="row">
     <?php foreach ($products as $product): ?>
-        <li>
-            <a href="<?php echo route('products.show', $product->id); ?>"><?php echo $product->name; ?></a>
-        </li>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img class="card-img-top" src="<?php echo asset('images/' . $product->image); ?>" alt="<?php echo $product->name; ?>">
+                <div class="card-body">
+                    <h5 class="card-title"><?php echo $product->name; ?></h5>
+                    <p class="card-text"><?php echo $product->description; ?></p>
+                    <h6 class="card-subtitle mb-2 text-muted">$<?php echo $product->price; ?></h6>
+                    <a href="<?php echo route('products.show', $product->id); ?>" class="btn btn-primary">View Product</a>
+                </div>
+            </div>
+        </div>
     <?php endforeach; ?>
-</ul>
+</div>
 
 <?php
 $content = ob_get_clean();
